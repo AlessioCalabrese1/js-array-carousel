@@ -10,4 +10,12 @@ let images = [
 let img_container = document.getElementById("img_container");
 let i = 0;
 
+for (let index = 0; index < images.length; index++) {
+    let current_img = document.createElement("img");
+    current_img.setAttribute("src", images[index]);
+    if (index == i) {
+        current_img.classList.add("active", "w_100");
+    }
+    img_container.append(current_img);
+}
 

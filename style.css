@@ -14,6 +14,7 @@
     display: none;
  }
  
- #img_container img.active{
+#img_container img.active{
     display: block;
  }
+ 
