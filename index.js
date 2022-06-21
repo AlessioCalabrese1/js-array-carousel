@@ -8,26 +8,37 @@ let images = [
 ];
 
 let img_container = document.getElementById("img_container");
+let thumbnailCotainer = document.getElementById("thumbnailCotainer");
 let i = 0;
 
 for (let index = 0; index < images.length; index++) {
     let current_img = document.createElement("img");
+    let thumbnailElement = document.createElement("i");
+    thumbnailElement.classList.add("fa-solid", "fa-circle", "m-2");
+
     current_img.setAttribute("src", images[index]);
     if (index == i) {
         current_img.classList.add("active", "w_100");
+        thumbnailElement.classList.add("clr_mg")
     }
     current_img.classList.add("w_100");
+
     img_container.append(current_img);
+    thumbnailCotainer.append(thumbnailElement);
 }
 
 let goLeft = document.getElementById("goLeft");
 let goRight = document.getElementById("goRight");
 
 let imgElements = document.querySelectorAll("#img_container img");
+let thumbnailElements = document.querySelectorAll("#thumbnailCotainer i");
 console.log(imgElements);
+console.log(thumbnailElements);
 
 goLeft.addEventListener("click", function(){
     let imgActive = document.querySelector("img.active");
+    let thumbnailClrMg = document.querySelector(".clr_mg");
+    thumbnailClrMg.classList.remove("clr_mg");
     imgActive.classList.remove("active");
     i--;
     console.log(i);
@@ -36,10 +47,13 @@ goLeft.addEventListener("click", function(){
         console.log("Questo è i nel menter: " + i);
     }
     imgElements[i].classList.add("active");
+    thumbnailElements[i].classList.add("clr_mg");
 })
 
 goRight.addEventListener("click", function(){
     let imgActive = document.querySelector("img.active");
+    let thumbnailClrMg = document.querySelector(".clr_mg");
+    thumbnailClrMg.classList.remove("clr_mg");
     imgActive.classList.remove("active");
     i++;
     console.log(i);
@@ -48,4 +62,5 @@ goRight.addEventListener("click", function(){
     }
     console.log("Questo è i dopo: " + i);
     imgElements[i].classList.add("active");
+    thumbnailElements[i].classList.add("clr_mg");
 })

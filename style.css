@@ -17,4 +17,8 @@
 #img_container img.active{
     display: block;
  }
+
+ .clr_mg{
+    color: rgb(228, 20, 211);
+ }
  
