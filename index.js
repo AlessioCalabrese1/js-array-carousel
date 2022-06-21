@@ -25,6 +25,15 @@ for (let index = 0; index < images.length; index++) {
 
     img_container.append(current_img);
     thumbnailCotainer.append(thumbnailElement);
+
+    thumbnailElement.addEventListener("click", function(){
+        let cancelImg = document.querySelector("img.active");
+        cancelImg.classList.remove("active");
+        current_img.classList.add("active");
+        let thumbnailClrMg = document.querySelector(".clr_mg");
+        thumbnailClrMg.classList.remove("clr_mg");
+        thumbnailElement.classList.add("clr_mg");
+    })
 }
 
 let goLeft = document.getElementById("goLeft");
