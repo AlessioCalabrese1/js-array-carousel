@@ -16,6 +16,36 @@ for (let index = 0; index < images.length; index++) {
     if (index == i) {
         current_img.classList.add("active", "w_100");
     }
+    current_img.classList.add("w_100");
     img_container.append(current_img);
 }
 
+let goLeft = document.getElementById("goLeft");
+let goRight = document.getElementById("goRight");
+
+let imgElements = document.querySelectorAll("#img_container img");
+console.log(imgElements);
+
+goLeft.addEventListener("click", function(){
+    let imgActive = document.querySelector("img.active");
+    imgActive.classList.remove("active");
+    i--;
+    console.log(i);
+    if(i < 0){
+        i = images.length - 1;
+        console.log("Questo è i nel menter: " + i);
+    }
+    imgElements[i].classList.add("active");
+})
+
+goRight.addEventListener("click", function(){
+    let imgActive = document.querySelector("img.active");
+    imgActive.classList.remove("active");
+    i++;
+    console.log(i);
+    if(i == images.length){
+        i = 0;
+    }
+    console.log("Questo è i dopo: " + i);
+    imgElements[i].classList.add("active");
+})
